@@ -6,3 +6,4 @@ ensure? insure?
 horizontal scroll
 comment code
 local fonts to web based fonts
+svgs scaling icon gallery
