@@ -5,6 +5,7 @@ $(function () {
 
   // variables for scroll event
   var canPane = true;
+  var inScrollable = false;
   var paneDelay = 300; // how long a pane transition takes (should line up with css)
 
   // function called at start of pane transition
@@ -23,9 +24,10 @@ $(function () {
   $(".pane.active svg path").css("animation-name", "draw");
 
   // handle scroll event
-  $("div").bind("mousewheel", function (e) {
+  $("body").bind("mousewheel", function (e) {
     if (e.originalEvent.wheelDelta < 0) {
-      if ($(".pane.after").length && canPane) {
+      console.log($(".scrollable:hover").length);
+      if ($(".pane.after").length && canPane && $(".scrollable:hover").length == 0) {
         // change pane classes
         $(".pane.active").addClass("before");
         $(".pane.active").removeClass("active");
@@ -38,7 +40,8 @@ $(function () {
       }
     }
     else {
-      if ($(".pane.before").length && canPane) {
+      console.log($(".scrollable:hover").length);
+      if ($(".pane.before").length && canPane && $(".scrollable:hover").length == 0) {
         $(".pane.active").addClass("after");
         $(".pane.active").removeClass("active");
         $(".pane.before:last()").addClass("active");

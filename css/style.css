@@ -17,6 +17,21 @@ ul {
   list-style: none;
 }
 
+.heading {
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+
+.sub-heading {
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
 /*pane system*/
 .container {
   width: 100%;
@@ -37,6 +52,10 @@ ul {
   opacity: 1;
   transition: opacity .3s ease-in-out, transform .3s ease-in-out;
   transform: translateY(0px);
+}
+
+.pane.active {
+  z-index: 5;
 }
 
 .pane:not(.active) {
@@ -110,11 +129,14 @@ ul {
   width: 27%;
   height: 20vh;
   margin: 0px 3% 30px 3%;
+  padding: 15px 0px;
   overflow: hidden;
   transition: height .3s ease-in-out;
   cursor: pointer;
   z-index: 10;
   position: relative;
+  background-color: transparent;
+  transition: background-color .3s ease-in-out;
 }
 @media (max-width: 600px) and (orientation: portrait) {
   .skills .icon-container {
@@ -124,8 +146,13 @@ ul {
   }
 }
 
+.skills .icon-container:hover {
+  background-color: #83fc99;
+}
+
 .skills .icon-container.hidden {
   height: 0vh;
+  padding: 0px;
 }
 
 .skills .icon-container img {
@@ -174,4 +201,20 @@ ul {
 
 .description-container.visible {
   opacity: 1;
+}
+
+/*experiences pane*/
+.experiences-container {
+  text-align: left;
+  background-color: #fff;
+  padding: 15px;
+  margin-top: 15px;
+  width: 90vw;
+  max-height: 50vh;
+  overflow-Y: scroll;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, .3);
+}
+
+.experiences-container p {
+  color: #3c0c42;
 }
