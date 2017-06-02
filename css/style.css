@@ -61,6 +61,19 @@ ul {
   }
 }
 
+.section-container {
+  position: relative;
+  padding: 100px 0;
+}
+
+.section-corner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  max-width: 300px;
+}
+
 /*navbar*/
 nav {
   position: fixed;
