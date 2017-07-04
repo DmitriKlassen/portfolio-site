@@ -1,9 +1,16 @@
 photoshop in css?
 other section for php, design, photoshop?
+other section?
 all icons for skills?
-https://stackoverflow.com/questions/2264072/detect-a-finger-swipe-through-javascript-on-the-iphone-and-android
-ensure? insure?
-horizontal scroll
+spelling grammar
+responsive
 comment code
 local fonts to web based fonts
 svgs scaling icon gallery
+inline-space comments needed?
+skills accessable? reader read hidden text?
+font sizing rem scalable up and down
+issue with iphone5 nav if fixed
+parallax name?
+tabindex
+logo animation delay

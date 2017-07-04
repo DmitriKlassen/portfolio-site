@@ -9,7 +9,7 @@
 p {
   font-family: 'Open Sans', sans-serif;
   color: #000;
-  font-size: 20px;
+  font-size: 1.7rem;
 }
 
 ul {
@@ -21,6 +21,7 @@ ul {
   font-family: 'Megrim';
   color: #333;
   font-size: 80px;
+  text-align: center;
 }
 
 .heading {
@@ -29,6 +30,7 @@ ul {
   font-size: 30px;
   font-weight: 700;
   letter-spacing: 4px;
+  margin-top: 15px;
 }
 
 .sub-heading {
@@ -36,6 +38,12 @@ ul {
   color: #333;
   font-size: 25px;
   letter-spacing: 2px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #000;
+}
+
+.text {
+  text-align: justify;
 }
 
 .container {
@@ -44,6 +52,8 @@ ul {
   width: 100%;
   max-width: 1600px;
   padding: 0 15px;
+  position: relative;
+  z-index: 2;
 }
 @media (min-width: 500px) {
   .container {
@@ -60,10 +70,19 @@ ul {
     width: 70%;
   }
 }
+@media (min-width: 1600px) {
+  .container {
+    width: 1120px;
+  }
+}
 
 section {
   position: relative;
   padding: 100px 0;
+}
+
+section:nth-child(even) {
+  background-color: rgba(196, 39, 216, 0.06);
 }
 
 .section-corner {
@@ -108,14 +127,13 @@ section {
 
 /*navbar*/
 nav {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   background-color: rgba(0, 0, 0, .8);
-  color: #fff;
   z-index: 10;
-  font-family: 'Megrim';
+  font-family: 'Open Sans', sans-serif;
   padding: 15px 0;
   transition: background-color .3s ease-in-out;
 }
@@ -123,6 +141,15 @@ nav {
 nav .container {
   display: flex;
   justify-content: space-between;
+}
+
+nav .container a, nav .mobile-nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav .container a:hover, nav .mobile-nav a:hover {
+  color: #83fc99;
 }
 
 nav .container .hamburger {
@@ -215,37 +242,128 @@ nav .mobile-nav li {
   height: 100vh;
 }
 
+#banner div {
+  text-align: center;
+}
+
 /*animate svg header*/
-#banner svg {
+#banner .name {
   display: inline-block;
   max-width: 80vw;
 }
 
-#banner svg path {
+#banner .name path {
   stroke: #fff;
   stroke-dasharray: 100px;
   stroke-dashoffset: 100px;
-  animation-name: draw;
+  animation-name: write;
   animation-duration: 2s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
   animation-timing-function: linear;
   fill: none;
   stroke-width:0.70000118;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity:1;
+}
+
+@keyframes write {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/*animate svg logo*/
+#banner .logo {
+  display: inline-block;
+  width: 100px;
+  height: 150px;
+}
+
+#banner .logo path {
+  stroke: #fff;
+  stroke-dasharray: 300px;
+  stroke-dashoffset: 300px;
+  animation-name: draw;
+  animation-duration: 5s;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-delay: 2000ms;
+  fill: none;
+  stroke-width:2.8;
   stroke-linecap: square;
   stroke-linejoin: bevel;
   stroke-opacity:1;
 }
 
 @keyframes draw {
-  to {
+  60% {
+    stroke-dashoffset: 300px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/*animate logo 'D'*/
+#banner .logo #d path {
+  stroke-dasharray: 300px;
+  stroke-dashoffset: 300px;
+  animation-name: draw-d;
+  animation-duration: 7.2s;
+  animation-delay: 2000ms;
+}
+
+@keyframes draw-d {
+  72% {
+    stroke-dashoffset: 300px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/*animate logo 'K'*/
+#banner .logo #k1 path, #banner .logo #k2 path, #banner .logo #k3 path, #banner .logo #k4 path {
+  stroke-dasharray: 300px;
+  stroke-dashoffset: 300px;
+  animation-name: draw-k;
+  animation-duration: 7s;
+  animation-delay: 2000ms;
+}
+
+@keyframes draw-k {
+  71% {
+    stroke-dashoffset: 300px;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/*animate logo 'K1'*/
+#banner .logo #k1 path {
+  stroke-dasharray: 300px;
+  stroke-dashoffset: 300px;
+  animation-name: draw-k1;
+  animation-duration: 6.8s;
+  animation-delay: 2000ms;
+}
+
+@keyframes draw-k1 {
+  70% {
+    stroke-dashoffset: 300px;
+  }
+  100% {
     stroke-dashoffset: 0;
   }
 }
 
 /*page content*/
 main {
-  z-index: 20;
+  /*z-index: 20;*/
   background-color: #fff;
   position: relative;
 }
@@ -290,6 +408,12 @@ main {
 .skill-gallery .icon-container.hidden {
   height: 0vh;
   padding: 0px;
+}
+
+.skill-gallery .icon-container button {
+  max-width: 100%;
+  max-height: 100%;
+  border: none;
 }
 
 .skill-gallery .icon-container svg {
@@ -361,4 +485,9 @@ main {
 
 .description-container.visible {
   opacity: 1;
+}
+
+/*for about section*/
+#about .main-heading {
+  margin-bottom: 20px;
 }
