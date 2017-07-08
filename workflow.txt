@@ -4,7 +4,7 @@ other section?
 all icons for skills?
 spelling grammar
 responsive
-comment code
+comment code!!!!! look at skills
 local fonts to web based fonts
 svgs scaling icon gallery
 inline-space comments needed?
@@ -14,3 +14,5 @@ issue with iphone5 nav if fixed
 parallax name?
 tabindex
 logo animation delay
+menuS in order of content
+new font?
