@@ -1,7 +1,3 @@
-photoshop in css?
-other section for php, design, photoshop?
-other section?
-all icons for skills?
 spelling grammar
 responsive
 comment code!!!!! look at skills
@@ -11,8 +7,16 @@ inline-space comments needed?
 skills accessable? reader read hidden text?
 font sizing rem scalable up and down
 issue with iphone5 nav if fixed
-parallax name?
+parallax name? or everything on scroll?
 tabindex
 logo animation delay
 menuS in order of content
 new font?
+skills section set heights? (wait for text resizes)
+smoother transitions on section resizes?
+top buttons inline -> link
+more/less font too big
+top nav hover efeects
+scrap freelance
+pic of me?
+link titles

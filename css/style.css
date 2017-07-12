@@ -110,7 +110,7 @@ section:nth-child(even) {
   opacity: 0.8;
 }
 
-.section-top {
+.section-top, .section-top-overlay {
   position: absolute;
   bottom: 0;
   right: 0;
@@ -122,13 +122,17 @@ section:nth-child(even) {
   cursor: pointer;
 }
 
-.section-top path {
-  fill: #4ba2d1;
-  transition: fill .3s ease-in-out;
+.section-top-overlay {
+  width: 0px;
+  height: 0px;
+  transition: width .3s ease-in-out, height .3s ease-in-out;
 }
 
-.section-top:hover path, .top-text:hover + .section-top path {
-  fill: #83fc99;
+a:hover .section-top-overlay, a:focus .section-top-overlay {
+  width: 150px;
+  max-width: 30vw;
+  height: 100px;
+  max-height: 20vw;
 }
 
 .top-text {
@@ -223,6 +227,40 @@ nav .mobile-nav li {
   padding: 15px;
 }
 
+button.more {
+  background-color: #c427d8;
+  border: none;
+  position: relative;
+  height: 47px;
+  width: 118px;
+  margin-top: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+button.more .overlay {
+  position: absolute;
+  width: 110%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -125%);
+  transition: transform .3s ease-in-out;
+}
+
+button.less .overlay {
+  transform: translate(-50%, 25%);
+}
+
+button.more:hover .overlay, button.more:focus .overlay {
+  transform: translate(-50%, -50%);
+}
+
+button.more p {
+  color: #fff;
+  position: relative;
+}
+
 /*nav changes for mobile*/
 @media (max-width: 600px) {
   nav.active {
@@ -303,11 +341,10 @@ nav .mobile-nav li {
   stroke-dasharray: 300px;
   stroke-dashoffset: 300px;
   animation-name: draw;
-  animation-duration: 5s;
+  animation-duration: 4s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
   animation-timing-function: linear;
-  animation-delay: 2000ms;
   fill: none;
   stroke-width:2.8;
   stroke-linecap: square;
@@ -329,8 +366,7 @@ nav .mobile-nav li {
   stroke-dasharray: 300px;
   stroke-dashoffset: 300px;
   animation-name: draw-d;
-  animation-duration: 7.2s;
-  animation-delay: 2000ms;
+  animation-duration: 6s;
 }
 
 @keyframes draw-d {
@@ -347,8 +383,7 @@ nav .mobile-nav li {
   stroke-dasharray: 300px;
   stroke-dashoffset: 300px;
   animation-name: draw-k;
-  animation-duration: 7s;
-  animation-delay: 2000ms;
+  animation-duration: 5.8s;
 }
 
 @keyframes draw-k {
@@ -365,8 +400,7 @@ nav .mobile-nav li {
   stroke-dasharray: 300px;
   stroke-dashoffset: 300px;
   animation-name: draw-k1;
-  animation-duration: 6.8s;
-  animation-delay: 2000ms;
+  animation-duration: 5.6s;
 }
 
 @keyframes draw-k1 {
@@ -384,7 +418,7 @@ nav .mobile-nav li {
   opacity: 0;
   animation-name: fade-in;
   animation-duration: .4s;
-  animation-delay: 5500ms;
+  animation-delay: 4.5s;
   animation-fill-mode: forwards;
 }
 
@@ -405,122 +439,78 @@ main {
 }
 
 /*skills section*/
-/*for skill gallery*/
 #skills {
   text-align: center;
-  height: 630px;
-}
-@media(max-width: 600px){
-  #skills {
-    height: 667px;
-  }
 }
 
-.skill-gallery {
-  margin-top: -50px;
+#skills .navbar {
+  display: flex;
+  margin-bottom: 30px;
 }
 
-.skill-gallery .icon-container {
-  display: inline-block;
-  width: 27%;
-  height: 140px;
-  margin: 0px 3% 30px 3%;
-  padding: 15px 0px;
-  overflow: hidden;
-  cursor: pointer;
-  z-index: 10;
+#skills .nav {
+  width: 16.16%;
   position: relative;
-  background-color: transparent;
-  transition: height .3s ease-in-out, padding .3s ease-in-out;
-}
-@media (max-width: 600px) and (orientation: portrait) {
-  .skill-gallery .icon-container {
-    width: 30%;
-    margin: 0px 7.5% 20px 7.5%;
-    height: 15vh;
-  }
-}
-
-.skill-gallery .icon-container.hidden {
-  height: 0vh;
-  padding: 0px;
-}
-
-.skill-gallery .icon-container button {
-  max-width: 100%;
-  max-height: 100%;
-  border: none;
-}
-
-.skill-gallery .icon-container svg {
-  height: 100%;
-  max-width: 100%;
-  display: inline-block;
-}
-
-.skill-gallery .icon-container path {
-  fill: #c427d8;
-  transition: fill .3s ease-in-out;
-}
-
-.skill-gallery .icon-container:hover path {
-  fill: #83fc99;
-}
-
-/*for skill that appears on top on click*/
-.head-skills {
-  margin: 40px 0 30px 0;
-}
-
-.head-skills .icon-container {
-  display: block;
-  height: 0;
-  width: 100%;
-  margin-top: -15px;
-  margin-bottom: 15px;
-  overflow: hidden;
-  transition: height .3s ease-in-out;
   cursor: pointer;
 }
-.head-skills .icon-container.visible {
-  height: 20vh;
-}
-@media (max-width: 600px) and (orientation: portrait) {
-  .head-skills .icon-container.visible {
-    height: 15vh;
-  }
+
+#skills .nav.active {
+  cursor: auto;
 }
 
-.head-skills .icon-container svg {
-  height: 100%;
-  max-width: 100%;
-}
-
-.head-skills .icon-container path {
-  fill: #c427d8;
-  transition: fill .3s ease-in-out;
-}
-
-.head-skills .icon-container:hover path {
-  fill: #83fc99;
-}
-
-
-/*for skill descriptions*/
-.skill-description {
-  width: 100%;
-  position: relative;
-}
-
-.description-container {
+#skills .nav .underline {
   position: absolute;
-  opacity: 0;
-  width: 100%;
-  transition: opacity .3s ease-in-out;
+  text-align: center;
+  height: 100%;
+  width: 0%;
+  border-bottom: 2px solid #c427d8;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: width .3s ease-in-out, border .3s ease-in-out;
 }
 
-.description-container.visible {
-  opacity: 1;
+#skills .nav:not(.active):hover .underline {
+  width: 100%;
+  border-bottom: 2px solid #83fc99;
+}
+
+#skills .nav.active .underline {
+  width: 100%;
+}
+
+#skills .nav svg {
+  height: 37px;
+  width: 37px;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+#skills .nav svg path {
+  stroke: #c427d8;
+  transition: stroke .3s ease-in-out;
+}
+
+#skills .nav:not(.active):hover svg path {
+  stroke: #83fc99;
+}
+
+#skills .nav p {
+  color: #c427d8;
+  margin: 6px;
+  transition: color .3s ease-in-out;
+}
+
+#skills .nav:not(.active):hover p {
+  color: #83fc99;
+}
+
+/*for about section*/
+#about .text {
+  margin-bottom: 20px;
+}
+
+#about .text:not(:nth-child(2)) {
+  display: none;
 }
 
 /*for portfolio section*/
@@ -528,13 +518,67 @@ main {
   display: flex;
   justify-content: space-between;
 }
+@media(max-width: 700px){
+  .col-parent {
+    flex-wrap: wrap;
+  }
+}
 
-.col-parent .card {
-  width: 490px;
-  max-width: 45%;
-  border: 1px solid red;
+.card-container {
+  width: 45%;
+  margin-bottom: 30px;
+}
+
+.card-container a {
+  text-decoration: none;
+}
+
+.card {
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: border .2s ease-in-out;
+  border: 5px solid #fff;
+}
+@media(max-width: 700px){
+  .col-parent .card {
+    width: 100%;
+  }
+}
+
+.card:hover {
+  border: 5px solid #83fc99;
 }
 
 .card .thumbnail {
   width: 100%;
+}
+
+.card .title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 15px 15px 0 15px;
+  border-bottom: 1px solid #000;
+}
+
+.card .description {
+  font-size: 18px;
+  text-align: justify;
+  margin: 15px;
+}
+
+.card-container .redding-link div {
+  margin: 10px 5px;
+  padding: 15px;
+  background-color: rgb(41, 171, 226);
+}
+
+.card-container .redding-link p {
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  color: #000;
+  transition: color .3s ease-in-out;
+}
+
+.card-container .redding-link:hover p {
+  color: #fff;
 }
