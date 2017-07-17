@@ -15,7 +15,7 @@
    version="1.1"
    id="svg64"
    inkscape:version="0.92.1 r15371"
-   sodipodi:docname="top.svg">
+   sodipodi:docname="top-green.svg">
   <defs
      id="defs58" />
   <sodipodi:namedview
@@ -58,7 +58,7 @@
      id="layer1"
      transform="translate(-88.446426,-31.44643)">
     <path
-       style="fill:#4ba2d1;fill-opacity:1;stroke:none;stroke-width:0.55409157px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       style="fill:#83fc99;fill-opacity:1;stroke:none;stroke-width:0.55409157px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 238.44643,31.44643 v 100 H 88.446426 Z"
        id="path66"
        inkscape:connector-curvature="0" />

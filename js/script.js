@@ -10,14 +10,21 @@ $(function () {
   });
 
   // handle animation from left to right
-  for(i = 0; i < $("#banner svg path").length; i++){
-    $("#banner svg path:nth-child(" + String(i + 1) + ")")
+  for(i = 0; i < $("#banner .name path").length; i++){
+    $("#banner .name path:nth-child(" + String(i + 1) + ")")
       .css("animation-delay", String((i) * .15) + "s");
   }
+  // use jquery to set animation delays for all banner elements so they will have no
+  // delays set in ie and edge where neither the jquery nor the svg animations are supported
+  $("#banner .logo path").css("animation-delay", "2.4s");
+  $("#banner .logo #d path").css("animation-delay", "4.3s");
+  $("#banner .logo #k2 path, #banner .logo #k3 path, #banner .logo #k4 path").css("animation-delay", "4.1s");
+  $("#banner .logo #k1 path").css("animation-delay", "3.9s");
+  $("#banner p").css("animation-delay", "4.5s");
 
   // array for all tab content
   var tabs = [
-    "I am a website developer currently looking for a team to be a part of and learn from. Feel free to check out some of my skills with the above tabs.",
+    "I am a website developer currently looking for a team to be a part of and learn from. Feel free to check out some of my skills with the tabs.",
     "With a strong understanding of HTML, I develop readable, well commented markup.",
     "Proficient in CSS and SASS, I turn concepts into websites, down to the finest details.",
     "Using JavaScript and JQuery, I turn great <i>looking</i> websites into great <i>feeling</i> websites with interactive elements.",
@@ -51,38 +58,50 @@ $(function () {
   });
 
   // contact form
-  var contact = $("#contact");
+  var contact = $("#contact-form");
   var formMessages = $(".form-messages");
 
   contact.submit(function(e){
     e.preventDefault();
 
-    var serialized = form.serialize();
+    // serialize form
+    var serialized = contact.serialize();
 
     $.ajax({
-      type: form.attr('method'),
-      url: form.attr('action'),
+      // ajax request
+      type: "POST",
+      url: "php/mailer.php",
       data: serialized
 
     }).done(function(res){
+      // form success
+      // change message style to success
       formMessages.addClass("done");
       formMessages.removeClass("fail");
 
-      formMessages.text(res);
+      // output result message
+      formMessages.html(res);
 
+      // clear form
       $("#name").val('');
       $("#email").val('');
       $("#message").val('');
+      grecaptcha.reset();
 
     }).fail(function(data){
+      // form failure
+      // change message style to failure
       formMessages.addClass("fail");
       formMessages.removeClass("done");
 
+      // output error message if there is one
       if(data.responseText != ""){
-        formMessages.text(data.responseText);
+        formMessages.html(data.responseText);
       }else{
-        formMessages.text("An error has occured. Please try again later or send your message via email to the address below. Sorry for the inconvenience.");
+        formMessages.text("An error has occured. Please refresh the page and try again. If the issue persists, please try again later or send your message to the email address below. Sorry for the inconvenience.");
       }
+
+      grecaptcha.reset();
     });
   });
 });

@@ -1,22 +1,8 @@
 spelling grammar
-responsive
 comment code!!!!! look at skills
-local fonts to web based fonts
-svgs scaling icon gallery
-inline-space comments needed?
-skills accessable? reader read hidden text?
-font sizing rem scalable up and down
-issue with iphone5 nav if fixed
-parallax name? or everything on scroll?
 tabindex
-logo animation delay
-menuS in order of content
-new font?
-skills section set heights? (wait for text resizes)
-smoother transitions on section resizes?
-top buttons inline -> link
-more/less font too big
-top nav hover efeects
-scrap freelance
 pic of me?
-link titles
+grammer in form messages
+cross browser
+main nav hover effect
+optimize site

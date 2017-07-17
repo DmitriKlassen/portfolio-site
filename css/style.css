@@ -5,9 +5,38 @@
   box-sizing: border-box;
 }
 
+.grecaptcha-badge {
+  display: none !important;
+}
+
 /*general styles*/
 html {
-  font-size: 16px;
+  font-size: 22px;
+  letter-spacing: 2px;
+}
+@media(max-width: 1500px){
+  html {
+    font-size: 20px;
+  }
+}
+@media(max-width: 1300px){
+  html {
+    font-size: 17px;
+  }
+}
+@media(max-width: 1100px){
+  html {
+    font-size: 14px;
+  }
+}
+@media(max-width: 900px){
+  html {
+    font-size: 12px;
+  }
+}
+
+section {
+  overflow: hidden;
 }
 
 p {
@@ -107,7 +136,6 @@ section:nth-child(even) {
   left: 0;
   width: 50%;
   max-width: 300px;
-  opacity: 0.8;
 }
 
 .section-top, .section-top-overlay {
@@ -118,21 +146,16 @@ section:nth-child(even) {
   max-width: 30vw;
   height: 100px;
   max-height: 20vw;
-  opacity: 0.8;
   cursor: pointer;
 }
 
 .section-top-overlay {
-  width: 0px;
-  height: 0px;
-  transition: width .3s ease-in-out, height .3s ease-in-out;
+  transform: translateY(100%);
+  transition: transform .3s ease-in-out;
 }
 
 a:hover .section-top-overlay, a:focus .section-top-overlay {
-  width: 150px;
-  max-width: 30vw;
-  height: 100px;
-  max-height: 20vw;
+  transform: translateY(0%);
 }
 
 .top-text {
@@ -259,6 +282,7 @@ button.more:hover .overlay, button.more:focus .overlay {
 button.more p {
   color: #fff;
   position: relative;
+  font-size: 20px;
 }
 
 /*nav changes for mobile*/
@@ -295,6 +319,7 @@ button.more p {
   background: radial-gradient(bottom left, #4ba2d1 -50%, #c427d8 60%, #83fc99);
   width: 100%;
   height: 100vh;
+  min-height: 400px;
 }
 
 #banner div {
@@ -309,8 +334,9 @@ button.more p {
 
 #banner .name path {
   stroke: #fff;
+  opacity: 0;
   stroke-dasharray: 100px;
-  stroke-dashoffset: 100px;
+  stroke-dashoffset: 0px;
   animation-name: write;
   animation-duration: 2s;
   animation-fill-mode: forwards;
@@ -324,8 +350,17 @@ button.more p {
 }
 
 @keyframes write {
-  to {
+  0% {
+    stroke-dashoffset: 100px;
+    opacity: 0;
+  }
+  0.001% {
+    stroke-dashoffset: 100px;
+    opacity: 1;
+  }
+  100% {
     stroke-dashoffset: 0;
+    opacity: 1;
   }
 }
 
@@ -333,15 +368,18 @@ button.more p {
 #banner .logo {
   display: inline-block;
   width: 100px;
+  max-width: 15vw;
   height: 150px;
+  max-height: 22.5vw;
 }
 
 #banner .logo path {
   stroke: #fff;
+  opacity: 0;
   stroke-dasharray: 300px;
-  stroke-dashoffset: 300px;
+  stroke-dashoffset: 0px;
   animation-name: draw;
-  animation-duration: 4s;
+  animation-duration: 1.6s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
   animation-timing-function: linear;
@@ -353,62 +391,89 @@ button.more p {
 }
 
 @keyframes draw {
-  60% {
+  0% {
     stroke-dashoffset: 300px;
+    opacity: 0;
+  }
+  0.001% {
+    stroke-dashoffset: 300px;
+    opacity: 1;
   }
   100% {
     stroke-dashoffset: 0;
+    opacity: 1;
   }
 }
 
 /*animate logo 'D'*/
 #banner .logo #d path {
+  opacity: 0;
   stroke-dasharray: 300px;
-  stroke-dashoffset: 300px;
+  stroke-dashoffset: 0px;
   animation-name: draw-d;
-  animation-duration: 6s;
+  animation-duration: 1.7s;
 }
 
 @keyframes draw-d {
-  72% {
+  0% {
     stroke-dashoffset: 300px;
+    opacity: 0;
+  }
+  0.001% {
+    stroke-dashoffset: 300px;
+    opacity: 1;
   }
   100% {
     stroke-dashoffset: 0;
+    opacity: 1;
   }
 }
 
 /*animate logo 'K'*/
-#banner .logo #k1 path, #banner .logo #k2 path, #banner .logo #k3 path, #banner .logo #k4 path {
+#banner .logo #k2 path, #banner .logo #k3 path, #banner .logo #k4 path {
+  opacity: 0;
   stroke-dasharray: 300px;
-  stroke-dashoffset: 300px;
+  stroke-dashoffset: 0px;
   animation-name: draw-k;
-  animation-duration: 5.8s;
+  animation-duration: 1.7s;
 }
 
 @keyframes draw-k {
-  71% {
+  0% {
     stroke-dashoffset: 300px;
+    opacity: 0;
+  }
+  0.001% {
+    stroke-dashoffset: 300px;
+    opacity: 1;
   }
   100% {
     stroke-dashoffset: 0;
+    opacity: 1;
   }
 }
 
 /*animate logo 'K1'*/
 #banner .logo #k1 path {
+  opacity: 0;
   stroke-dasharray: 300px;
-  stroke-dashoffset: 300px;
+  stroke-dashoffset: 0px;
   animation-name: draw-k1;
-  animation-duration: 5.6s;
+  animation-duration: 1.7s;
 }
 
 @keyframes draw-k1 {
-  70% {
+  0% {
     stroke-dashoffset: 300px;
+    opacity: 0;
+  }
+  0.001% {
+    stroke-dashoffset: 300px;
+    opacity: 1;
   }
   100% {
     stroke-dashoffset: 0;
+    opacity: 1;
   }
 }
 
@@ -418,7 +483,6 @@ button.more p {
   opacity: 0;
   animation-name: fade-in;
   animation-duration: .4s;
-  animation-delay: 4.5s;
   animation-fill-mode: forwards;
 }
 
@@ -466,7 +530,7 @@ main {
   border-bottom: 2px solid #c427d8;
   left: 50%;
   transform: translateX(-50%);
-  transition: width .3s ease-in-out, border .3s ease-in-out;
+  transition: width .3s ease-in-out, height .3s ease-in-out, border .3s ease-in-out;
 }
 
 #skills .nav:not(.active):hover .underline {
@@ -481,8 +545,16 @@ main {
 #skills .nav svg {
   height: 37px;
   width: 37px;
-  display: inline-block;
-  margin-top: 6px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@media(max-width: 1100px){
+  #skills .nav svg{
+  height: 30px;
+  width: 30px;
+  }
 }
 
 #skills .nav svg path {
@@ -502,6 +574,48 @@ main {
 
 #skills .nav:not(.active):hover p {
   color: #83fc99;
+}
+
+/*mobile styles*/
+@media(max-width: 600px){
+  #skills .mobile-flex {
+    display: flex;
+  }
+
+  #skills .main-heading {
+    width: 100%;
+  }
+
+  #skills .navbar {
+    margin-bottom: 0;
+    margin-right: 15px;
+    flex-direction: column;
+  }
+  
+  #skills .nav {
+    width: 100%;
+    height: 40px;
+  }
+
+  #skills .nav .underline {
+    border-right: 2px solid #c427d8;
+    border-bottom: none;
+    width: 100%;
+    height: 0%;
+    left: 0%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  #skills .nav:not(.active):hover .underline {
+    height: 100%;
+    border-right: 2px solid #83fc99;
+    border-bottom: none;
+  }
+
+  #skills .nav.active .underline {
+    height: 100%;
+  }
 }
 
 /*for about section*/
@@ -528,6 +642,11 @@ main {
   width: 45%;
   margin-bottom: 30px;
 }
+@media(max-width: 700px){
+  .card-container {
+    width: 100%;
+  }
+}
 
 .card-container a {
   text-decoration: none;
@@ -537,11 +656,6 @@ main {
   background-color: rgba(0, 0, 0, 0.1);
   transition: border .2s ease-in-out;
   border: 5px solid #fff;
-}
-@media(max-width: 700px){
-  .col-parent .card {
-    width: 100%;
-  }
 }
 
 .card:hover {
@@ -581,4 +695,96 @@ main {
 
 .card-container .redding-link:hover p {
   color: #fff;
+}
+
+/*contact section*/
+#contact {
+  padding-bottom: 0;
+}
+
+.form-messages {
+  margin: 15px 0;
+  padding: 10px;
+  display: none;
+  font-size: 20px;
+}
+
+.done {
+  color: #fff;
+  background-color: #6db3d9;
+  display: block;
+}
+
+.fail {
+  color: #000;
+  background-color: #f22;
+  display: block;
+}
+
+input, textarea {
+  width: 100%;
+  border: none;
+  border-left: 2px solid #c427d8;
+  padding: 5px;
+  font-size: 20px;
+  transition: border .15s ease-in-out;
+  font-family: 'Open Sans', sans-serif;
+}
+
+input:focus, textarea:focus {
+  border-left: 7px solid #83fc99;
+  outline: none;
+}
+
+input {
+  margin-bottom: 15px;
+}
+
+textarea {
+  height: 80px;
+  resize: none;
+}
+
+.legal {
+  font-size: 12px;
+  margin-bottom: 40px;
+}
+
+form button {
+  background-color: #c427d8;
+  border: none;
+  position: relative;
+  height: 47px;
+  width: 118px;
+  margin: 15px 0;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+form button .overlay {
+  position: absolute;
+  height: 120%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-140%, -50%);
+  transition: transform .3s ease-in-out;
+}
+
+form button:hover .overlay, form button:focus .overlay {
+  transform: translate(-50%, -50%);
+}
+
+form button p {
+  color: #fff;
+  position: relative;
+  font-size: 20px;
+}
+
+iframe {
+  border: none;
+  width: 100%;
+  height: 400px;
+  max-height: 90vh;
+  margin-top: 100px;
 }
