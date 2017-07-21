@@ -5,11 +5,13 @@
   box-sizing: border-box;
 }
 
+/*remove recaptcha badge*/
 .grecaptcha-badge {
   display: none !important;
 }
 
 /*general styles*/
+/*set default font size (can use rems)*/
 html {
   font-size: 22px;
   letter-spacing: 2px;
@@ -35,6 +37,7 @@ html {
   }
 }
 
+/*hide overflows allows 'top' button hover effects*/
 section {
   overflow: hidden;
 }
@@ -50,6 +53,7 @@ ul {
   list-style: none;
 }
 
+/*reusable centering classes*/
 .center {
   position: relative;
 }
@@ -61,6 +65,7 @@ ul {
   transform: translate(-50%, -50%);
 }
 
+/*main sections headings*/
 .main-heading {
   font-family: 'Megrim';
   color: #333;
@@ -69,6 +74,7 @@ ul {
   margin-bottom: 30px;
 }
 
+/*less segnifigant heading*/
 .heading {
   font-family: 'Open Sans', sans-serif;
   color: #333;
@@ -78,6 +84,7 @@ ul {
   margin-top: 15px;
 }
 
+/*even less segnifigant heading*/
 .sub-heading {
   font-family: 'Open Sans', sans-serif;
   color: #333;
@@ -87,10 +94,22 @@ ul {
   border-bottom: 1px solid #000;
 }
 
+/*class for some text areas*/
 .text {
   text-align: justify;
 }
 
+/*general section styles*/
+section {
+  position: relative;
+  padding: 100px 0;
+}
+
+section:nth-child(even) {
+  background-color: rgba(0, 0, 0, .03);
+}
+
+/*default container styles*/
 .container {
   display: block;
   margin: 0 auto;
@@ -121,15 +140,7 @@ ul {
   }
 }
 
-section {
-  position: relative;
-  padding: 100px 0;
-}
-
-section:nth-child(even) {
-  background-color: rgba(0, 0, 0, .03);
-}
-
+/*for top left decorative graphics*/
 .section-corner {
   position: absolute;
   top: 0;
@@ -138,6 +149,7 @@ section:nth-child(even) {
   max-width: 300px;
 }
 
+/*for 'top' buttons*/
 .section-top, .section-top-overlay {
   position: absolute;
   bottom: 0;
@@ -168,7 +180,7 @@ a:hover .section-top-overlay, a:focus .section-top-overlay {
   z-index: 21;
 }
 
-/*navbar*/
+/*for primary navbar*/
 nav {
   position: absolute;
   top: 0;
@@ -186,15 +198,37 @@ nav .container {
   justify-content: space-between;
 }
 
+nav .container li {
+  position: relative;
+}
+
+/*for links in navbar*/
 nav .container a, nav .mobile-nav a {
   color: #fff;
   text-decoration: none;
+  position: relative;
+  z-index: 10;
 }
 
-nav .container a:hover, nav .mobile-nav a:hover {
-  color: #83fc99;
+nav .container .underline {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  border-bottom: 1px solid #83fc99;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
 }
 
+nav .container a:hover + .underline, nav .container a:focus + .underline {
+  transform: scaleX(1);
+}
+
+nav .container a:focus {
+  outline: none;
+}
+
+/*for mobile hamburger button*/
 nav .container .hamburger {
   width: 30px;
   height: 25px;
@@ -211,7 +245,11 @@ nav .container .hamburger div {
   position: absolute;
   left: 0;
   opacity: 1;
-  transition: opacity .3s ease-in-out, transform .3s ease-in-out;
+  transition: opacity .3s ease-in-out, transform .3s ease-in-out, background-color .1s ease-in-out;
+}
+
+nav .container .hamburger:hover div {
+  background-color: #83fc99;
 }
 
 nav .container .hamburger div:nth-child(1) {
@@ -236,6 +274,7 @@ nav.active .container .hamburger div:nth-child(3) {
   transform: translateY(-12px) rotate(135deg);
 }
 
+/*for mobile drop-down nav*/
 nav .mobile-nav {
   display: none;
   height: 0;
@@ -248,41 +287,6 @@ nav .mobile-nav {
 
 nav .mobile-nav li {
   padding: 15px;
-}
-
-button.more {
-  background-color: #c427d8;
-  border: none;
-  position: relative;
-  height: 47px;
-  width: 118px;
-  margin-top: 30px;
-  cursor: pointer;
-  overflow: hidden;
-  outline: none;
-}
-
-button.more .overlay {
-  position: absolute;
-  width: 110%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -125%);
-  transition: transform .3s ease-in-out;
-}
-
-button.less .overlay {
-  transform: translate(-50%, 25%);
-}
-
-button.more:hover .overlay, button.more:focus .overlay {
-  transform: translate(-50%, -50%);
-}
-
-button.more p {
-  color: #fff;
-  position: relative;
-  font-size: 20px;
 }
 
 /*nav changes for mobile*/
@@ -311,7 +315,8 @@ button.more p {
   }
 }
 
-/*section specific*/
+/*SECTION SPECIFIC STYLES*/
+/*--------------------------------------------------------------------*/
 /*banner section*/
 #banner {
   background-color: #c427d8;
@@ -326,7 +331,7 @@ button.more p {
   text-align: center;
 }
 
-/*animate svg header*/
+/*for 'dmitri klassen'*/
 #banner .name {
   display: inline-block;
   max-width: 80vw;
@@ -364,7 +369,7 @@ button.more p {
   }
 }
 
-/*animate svg logo*/
+/*for logo*/
 #banner .logo {
   display: inline-block;
   width: 100px;
@@ -373,12 +378,13 @@ button.more p {
   max-height: 22.5vw;
 }
 
+/*general logo path styles*/
 #banner .logo path {
   stroke: #fff;
   opacity: 0;
   stroke-dasharray: 300px;
   stroke-dashoffset: 0px;
-  animation-name: draw;
+  animation-name: draw-logo;
   animation-duration: 1.6s;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
@@ -390,7 +396,7 @@ button.more p {
   stroke-opacity:1;
 }
 
-@keyframes draw {
+@keyframes draw-logo {
   0% {
     stroke-dashoffset: 300px;
     opacity: 0;
@@ -410,74 +416,26 @@ button.more p {
   opacity: 0;
   stroke-dasharray: 300px;
   stroke-dashoffset: 0px;
-  animation-name: draw-d;
   animation-duration: 1.7s;
 }
 
-@keyframes draw-d {
-  0% {
-    stroke-dashoffset: 300px;
-    opacity: 0;
-  }
-  0.001% {
-    stroke-dashoffset: 300px;
-    opacity: 1;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-}
-
-/*animate logo 'K'*/
+/*animate logo 'K' line segments*/
 #banner .logo #k2 path, #banner .logo #k3 path, #banner .logo #k4 path {
   opacity: 0;
   stroke-dasharray: 300px;
   stroke-dashoffset: 0px;
-  animation-name: draw-k;
   animation-duration: 1.7s;
 }
 
-@keyframes draw-k {
-  0% {
-    stroke-dashoffset: 300px;
-    opacity: 0;
-  }
-  0.001% {
-    stroke-dashoffset: 300px;
-    opacity: 1;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-}
-
-/*animate logo 'K1'*/
+/*animate logo top left 'k' line segment*/
 #banner .logo #k1 path {
   opacity: 0;
   stroke-dasharray: 300px;
   stroke-dashoffset: 0px;
-  animation-name: draw-k1;
   animation-duration: 1.7s;
 }
 
-@keyframes draw-k1 {
-  0% {
-    stroke-dashoffset: 300px;
-    opacity: 0;
-  }
-  0.001% {
-    stroke-dashoffset: 300px;
-    opacity: 1;
-  }
-  100% {
-    stroke-dashoffset: 0;
-    opacity: 1;
-  }
-}
-
-/*tagline*/
+/*for tagline*/
 #banner p {
   color: white;
   opacity: 0;
@@ -495,18 +453,18 @@ button.more p {
   }
 }
 
-/*page content*/
+/*for the meat n' potatas of the site*/
 main {
-  /*z-index: 20;*/
   background-color: #fff;
   position: relative;
 }
 
-/*skills section*/
+/*FOR THE SKILLS SECTION*/
 #skills {
   text-align: center;
 }
 
+/*for skills-specific nav bar*/
 #skills .navbar {
   display: flex;
   margin-bottom: 30px;
@@ -526,20 +484,20 @@ main {
   position: absolute;
   text-align: center;
   height: 100%;
-  width: 0%;
+  width: 100%;
+  top: 0;
   border-bottom: 2px solid #c427d8;
-  left: 50%;
-  transform: translateX(-50%);
-  transition: width .3s ease-in-out, height .3s ease-in-out, border .3s ease-in-out;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out, border .3s ease-in-out;
 }
 
-#skills .nav:not(.active):hover .underline {
-  width: 100%;
+#skills .nav:not(.active):hover .underline, #skills .nav:not(.active) button:focus + .underline {
+  transform: scaleX(1);
   border-bottom: 2px solid #83fc99;
 }
 
 #skills .nav.active .underline {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 #skills .nav svg {
@@ -562,7 +520,7 @@ main {
   transition: stroke .3s ease-in-out;
 }
 
-#skills .nav:not(.active):hover svg path {
+#skills .nav:not(.active):hover svg path, #skills .nav:not(.active) button:focus svg path {
   stroke: #83fc99;
 }
 
@@ -572,18 +530,31 @@ main {
   transition: color .3s ease-in-out;
 }
 
-#skills .nav:not(.active):hover p {
+#skills .nav:not(.active):hover p, #skills .nav:not(.active) button:focus p {
   color: #83fc99;
 }
 
-/*mobile styles*/
+#skills .nav button {
+  position: relative;
+  z-index: 10;
+  border: none;
+  background: none;
+  height: 100%;
+  width: 100%;
+}
+
+#skills .nav:not(.active) button {
+  cursor: pointer;
+}
+
+#skills .nav button:focus {
+  outline: none;
+}
+
+/*mobile skills-nav styles*/
 @media(max-width: 600px){
   #skills .mobile-flex {
     display: flex;
-  }
-
-  #skills .main-heading {
-    width: 100%;
   }
 
   #skills .navbar {
@@ -600,25 +571,21 @@ main {
   #skills .nav .underline {
     border-right: 2px solid #c427d8;
     border-bottom: none;
-    width: 100%;
-    height: 0%;
-    left: 0%;
-    top: 50%;
-    transform: translateY(-50%);
+    transform: scaleY(0);
   }
 
   #skills .nav:not(.active):hover .underline {
-    height: 100%;
+    transform: scaleY(1);
     border-right: 2px solid #83fc99;
     border-bottom: none;
   }
 
   #skills .nav.active .underline {
-    height: 100%;
+    transform: scaleY(1);
   }
 }
 
-/*for about section*/
+/*FOR ABOUT SECTION*/
 #about .text {
   margin-bottom: 20px;
 }
@@ -627,7 +594,43 @@ main {
   display: none;
 }
 
-/*for portfolio section*/
+button.more {
+  background-color: #c427d8;
+  border: none;
+  position: relative;
+  height: 47px;
+  width: 118px;
+  margin-top: 30px;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+button.more .overlay {
+  position: absolute;
+  width: 110%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -125%);
+  transition: transform .3s ease-in-out;
+}
+
+button.less .overlay {
+  transform: translate(-50%, 25%);
+}
+
+button.more:hover .overlay, button.more:focus .overlay {
+  transform: translate(-50%, -50%);
+}
+
+button.more p {
+  color: #fff;
+  position: relative;
+  font-size: 20px;
+}
+
+/*FOR PORTFOLIO SECTION*/
+/*parent to handle columns' behavior*/
 .col-parent {
   display: flex;
   justify-content: space-between;
@@ -638,6 +641,7 @@ main {
   }
 }
 
+/*parent to hold card and 'redding' button*/
 .card-container {
   width: 45%;
   margin-bottom: 30px;
@@ -652,20 +656,27 @@ main {
   text-decoration: none;
 }
 
+/*websites' cards*/
 .card {
   background-color: rgba(0, 0, 0, 0.1);
-  transition: border .2s ease-in-out;
-  border: 5px solid #fff;
+  transition: outline .2s ease-in-out;
+  outline: 5px solid transparent;
 }
 
-.card:hover {
-  border: 5px solid #83fc99;
+.card-container a {
+  outline: none;
 }
 
+.card:hover, a:focus .card {
+  outline: 5px solid #83fc99;
+}
+
+/*card image*/
 .card .thumbnail {
   width: 100%;
 }
 
+/*card title*/
 .card .title {
   font-size: 20px;
   font-weight: 700;
@@ -673,14 +684,16 @@ main {
   border-bottom: 1px solid #000;
 }
 
+/*card description*/
 .card .description {
   font-size: 18px;
   text-align: justify;
   margin: 15px;
 }
 
+/*for 'redding' button*/
 .card-container .redding-link div {
-  margin: 10px 5px;
+  margin: 15px 0px;
   padding: 15px;
   background-color: rgb(41, 171, 226);
 }
@@ -693,15 +706,28 @@ main {
   transition: color .3s ease-in-out;
 }
 
-.card-container .redding-link:hover p {
+.card-container .redding-link:hover p, .card-container .redding-link:focus p {
   color: #fff;
 }
 
-/*contact section*/
+/*FOR EXPERIENCE SECTION*/
+#redding a{
+  text-decoration: none;
+  color: #000;
+  transition: color .15s ease-in-out;
+}
+
+#redding a:hover, #redding a:focus{
+  color: #83fc99;
+  outline: none;
+}
+
+/*FOR CONTACT SECTION*/
 #contact {
   padding-bottom: 0;
 }
 
+/*for user feedback*/
 .form-messages {
   margin: 15px 0;
   padding: 10px;
@@ -721,6 +747,7 @@ main {
   display: block;
 }
 
+/*style contact form*/
 input, textarea {
   width: 100%;
   border: none;
@@ -745,11 +772,13 @@ textarea {
   resize: none;
 }
 
+/*for recaptcha legality text*/
 .legal {
   font-size: 12px;
   margin-bottom: 40px;
 }
 
+/*form submit button*/
 form button {
   background-color: #c427d8;
   border: none;
@@ -781,6 +810,18 @@ form button p {
   font-size: 20px;
 }
 
+#contact .text a{
+  text-decoration: none;
+  color: #000;
+  transition: color .15s ease-in-out;
+}
+
+#contact .text a:hover, #contact .text a:focus{
+  color: #83fc99;
+  outline: none;
+}
+
+/*style google map*/
 iframe {
   border: none;
   width: 100%;

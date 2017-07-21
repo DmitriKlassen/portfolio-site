@@ -19,7 +19,7 @@
       // check submission is intact
       if(empty($name) || empty($message) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
         http_response_code(400);
-        echo "An error has occured. Please ensure the form is complete and try again.";
+        echo "An error has occurred. Please ensure the form is complete and try again.";
         exit;
       }
 
@@ -37,15 +37,15 @@
       }else{
         // internal error (bad)
         http_response_code(500);
-        echo "An error has occured. Please refresh the page and try again. If the issue persists, please try again later or send your message to the email address below. Sorry for the inconvenience.";
+        echo "An error has occurred. Please refresh the page and try again. If the issue persists, please try again later or send your message to the email address below. Sorry for the inconvenience.";
       }
     }else{
         http_response_code(400);
-        echo "Recaptcha error occured. Please refresh the page and try again.";
+        echo "reCAPTCHA error occurred. Please refresh the page and try again.";
     }
   }else{
     // not post request (bad). set 403 (forbidden)
     http_response_code(403);
-    echo "An error has occured. Please refresh the page and try again.";
+    echo "An error has occurred. Please refresh the page and try again.";
   }
 ?>

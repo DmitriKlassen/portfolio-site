@@ -4,7 +4,7 @@ function changeText(selector, newText){
 }
 
 $(function () {
-  // handle nav bar
+  // handle mobile nav bar
   $("nav .container .hamburger").click(function(){
     $("nav").toggleClass("active");
   });
@@ -32,12 +32,12 @@ $(function () {
     "I have light experience with Angular 2, Node, PHP, SQL, MongoDB, Photoshop and more. I am ready to learn more about these or other technologies, should it be appropriate."
   ];
 
-  // handle nav tab system
-  $(".navbar .nav").click(function(){
-    if(!$(this).hasClass("active")){
+  // handle skills nav tab system
+  $(".navbar .nav button").click(function(){
+    if(!$(this).parent().hasClass("active")){
       $(".navbar .nav").removeClass("active");
-      $(this).addClass("active");
-      changeText("#skills .content p", tabs[$(this).index()]);
+      $(this).parent().addClass("active");
+      changeText("#skills .content p", tabs[$(this).parent().index()]);
     }
   });
 
@@ -87,6 +87,7 @@ $(function () {
       $("#email").val('');
       $("#message").val('');
       grecaptcha.reset();
+      $("#contact-form button p").text("SEND");
 
     }).fail(function(data){
       // form failure
@@ -98,10 +99,11 @@ $(function () {
       if(data.responseText != ""){
         formMessages.html(data.responseText);
       }else{
-        formMessages.text("An error has occured. Please refresh the page and try again. If the issue persists, please try again later or send your message to the email address below. Sorry for the inconvenience.");
+        formMessages.text("An error has occurred. Please refresh the page and try again. If the issue persists, please try again later or send your message to the email address below. Sorry for the inconvenience.");
       }
 
       grecaptcha.reset();
+      $("#contact-form button p").text("SEND");
     });
   });
 });
