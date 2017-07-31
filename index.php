@@ -4,13 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta property="og:site_name" content="Dmitri Klassen's Portfolio"/>
+    <meta property="og:title" content="Dmitri Klassen's Portfolio"/>
+    <meta property="og:url" content="http://dmitriklassen.com">
+    <meta property="og:image" content="img/thumbnail.jpg">
+    <meta property="og:description" content="Dmitri Klassen's portfolio website. Check out what he can do and what he has done."/>
+    <meta property="site_name" content="Dmitri Klassen's Portfolio"/>
+    <meta property="title" content="Dmitri Klassen's Portfolio"/>
+    <meta property="url" content="http://dmitriklassen.com">
+    <meta property="image" content="img/thumbnail.jpg">
+    <meta property="description" content="Dmitri Klassen's portfolio website. Check out what he can do and what he has done."/>
+    <meta name="keywords" content="Dmitri, Klassen, portfolio, web, website, dev, developer">
 
-    <title>Document</title>
+    <title>Dmitri Klassen | Portfolio</title>
 
     <link rel="icon" href="img/favicon.png">
 
+    <!--google analytics-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-103665577-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+
     <!--scripts-->
     <script src="js/jquery.min.js"></script>
+    <script src="js/smoothScroll.js"></script>
+    <script src="js/localScroll.js"></script>
     <script src="js/script.js"></script>
 
     <!--styles-->
@@ -47,11 +72,11 @@
         </li>
 
         <!--hamberger icon aligned by container (only visible on mobile)-->
-        <div class="hamburger">
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <li class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </li>
       </ul>
 
       <!--mobile nav dropdown (centered; no need for container)-->
@@ -234,7 +259,7 @@
             <defs
               id="defs7012" />
             <sodipodi:namedview
-              id="base"
+              id="base2"
               pagecolor="#ffffff"
               bordercolor="#666666"
               borderopacity="1.0"
@@ -354,60 +379,54 @@
       <section id="portfolio">
         <div class="container">
           <p class="main-heading">What I Have Done</p>
-          <!--flex parent to manage columns-->
-          <div class="col-parent">
-            <!--left card container-->
-            <div class="card-container">
-              <!--left card-->
-              <a target="_blank" href="http://littlecariboudaycare.com/" title="To Little Caribou Daycare">
-                <div class="card">
-                  <!--card image-->
-                  <img src="img/little-caribou.jpg" alt="Screenshot of Little Caribou Daycare's Website" class="thumbnail">
-                  <!--card title-->
-                  <p class="title">Little Caribou Daycare</p>
-                  <!--card text-->
-                  <p class="description">
-                    My job on this project was to build the front end of the website to match a concept from 
-                    the design department. I enjoyed working with this fun graphical style and used HTML, CSS, 
-                    JavaScript, JQuery, Bootstrap and Parallax.js to get the job done.
-                  </p>
-                </div>
-              </a>
+          <!--grid parent-->
+          <div class="grid-parent">
+            <!--left card-->
+            <a target="_blank" href="http://littlecariboudaycare.com/" title="To Little Caribou Daycare">
+              <div class="card card1">
+                <!--card image-->
+                <img src="img/little-caribou.jpg" alt="Screenshot of Little Caribou Daycare's Website" class="thumbnail">
+                <!--card title-->
+                <p class="title">Little Caribou Daycare</p>
+                <!--card text-->
+                <p class="description">
+                  My job on this project was to build the front end of the website to match a concept from 
+                  the design department. I enjoyed working with this fun graphical style and used HTML, CSS, 
+                  JavaScript, JQuery, Bootstrap and Parallax.js to get the job done.
+                </p>
+              </div>
+            </a>
 
-              <!--button below card-->
-              <a href="http://reddingdesigns.com/" class="redding-link" target="_blank" title="To Redding Designs">
-                <div>
-                  <p>Project done for Redding Designs</p>
-                </div>
-              </a>
-            </div>
+            <!--button below card-->
+            <a href="http://reddingdesigns.com/" class="redding-link redding-link1" target="_blank" title="To Redding Designs">
+              <div>
+                <p>Project done for Redding Designs</p>
+              </div>
+            </a>
 
-            <!--right card container-->
-            <div class="card-container">
-              <!--right card-->
-              <a target="_blank" href="http://canampepper.com/" title="To Can-am Peppers">
-                <div class="card">
-                  <!--card image-->
-                  <img src="img/canam-peppers.jpg" alt="Screenshot of Canam Pepper's Website" class="thumbnail">
-                  <!--card title-->
-                  <p class="title">Can-am Peppers</p>
-                  <!--card description-->
-                  <p class="description">
-                    My job on this project was to build the front end of the website to match a concept from 
-                    the design department. This is the first website I coded for Redding Designs. This site 
-                    was created in WordPress and made use of the Advanced Custom Fields plugin to create 
-                    easy-to-update content sections.
-                  </p>
-                </div>
-              </a>
+            <!--right card-->
+            <a target="_blank" href="http://canampepper.com/" title="To Can-am Peppers">
+              <div class="card card2">
+                <!--card image-->
+                <img src="img/canam-peppers.jpg" alt="Screenshot of Canam Pepper's Website" class="thumbnail">
+                <!--card title-->
+                <p class="title">Can-am Peppers</p>
+                <!--card description-->
+                <p class="description">
+                  My job on this project was to build the front end of the website to match a concept from 
+                  the design department. This is the first website I coded for Redding Designs. This site 
+                  was created in WordPress and made use of the Advanced Custom Fields plugin to create 
+                  easy-to-update content sections.
+                </p>
+              </div>
+            </a>
 
-              <!--button below card-->
-              <a href="http://reddingdesigns.com/" class="redding-link" target="_blank" title="To Redding Designs">
-                <div>
-                  <p>Project done for Redding Designs</p>
-                </div>
-              </a>
-            </div>
+            <!--button below card-->
+            <a href="http://reddingdesigns.com/" class="redding-link redding-link2" target="_blank" title="To Redding Designs">
+              <div>
+                <p>Project done for Redding Designs</p>
+              </div>
+            </a>
           </div>
         </div>
         
@@ -447,16 +466,16 @@
                     height="100mm"
                     viewBox="0 0 99.999998 99.999998"
                     version="1.1"
-                    id="svg7018"
+                    id="svg7019"
                     inkscape:version="0.92.1 r15371"
                     sodipodi:docname="purple.svg"
                     inkscape:export-filename="C:\Users\admin\Documents\projects\logo\personal logo\purple-32x32.png"
                     inkscape:export-xdpi="8.1280003"
                     inkscape:export-ydpi="8.1280003">
                     <defs
-                      id="defs7012" />
+                      id="defs7013" />
                     <sodipodi:namedview
-                      id="base"
+                      id="base3"
                       pagecolor="#ffffff"
                       bordercolor="#666666"
                       borderopacity="1.0"
@@ -481,7 +500,7 @@
                       fit-margin-right="0"
                       fit-margin-bottom="0" />
                     <metadata
-                      id="metadata7015">
+                      id="metadata7016">
                       <rdf:RDF>
                         <cc:Work
                           rdf:about="">
@@ -642,7 +661,7 @@
           </p>
           <p class="text">
             I graduated high school in 2016. I always excelled at math and other logic related courses and 
-            knew that I work in a field that would use these skills. Now, I have chosen the path 
+            knew that I would work in a field that would use these skills. Now, I have chosen the path 
             I want to go down: website development. Right now I lack experience, but I know that with 
             guidance and a learning environment I will become a developer that anyone would be glad to 
             have on their team.
@@ -673,13 +692,13 @@
           <p class="main-heading">Where I Have Been</p>
           
           <!--redding designs-->
-          <p class="heading" id="redding"><a href="http://reddingdesigns.com/" target="_blank" title="To Redding Designs">Redding Designs</a></p>
-          <p class="sub-heading">Feb 2017 - June 2017</p>
+          <p class="heading" id="redding"><a href="http://reddingdesigns.com/" target="_blank" title="To Redding Designs"><b>Redding Designs</b></a> - Intern</p>
+          <p class="sub-heading">February 2017 - June 2017</p>
           <p>
             <b>Responsibilities:</b><br>
-            Developing websites to match designs<br>
-            Making changes as designers or clients requested<br>
-            Using plugins or creating custom code as a project required<br><br>
+            Develop websites to match designs<br>
+            Make changes as designers or clients request<br>
+            Data entry and other tasks to help programmers<br><br>
             <b>Tools Used:</b><br>
             HTML5<br>
             CSS3/SASS<br>
@@ -737,12 +756,14 @@
 
           <!--alternate email-->
           <p class="sub-heading">Alternatively, you can reach me here:</p>
-          <p class="text"><b>Email:</b> <a href="mailto:Dmi.Klassen@gmail.com" title="Email Dmitri">Dmi.Klassen@gmail.com</a></p>
+          <p class="text"><b>Email:</b> <a href="mailto:dmitri@dmitriklassen.com" title="Email Dmitri">dmitri@dmitriklassen.com</a></p>
         </div>
 
         <!--google map-->
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d749092.5000883564!2d-81.55034262256487!3d42.827601961537596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882e7cd2361c7cb9%3A0xb9a13d3e2d284cd5!2sAylmer%2C+ON!5e0!3m2!1sen!2sca!4v1499958151760" allowfullscreen></iframe>
-        
+        <div class="maps">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d749092.5000883564!2d-81.55034262256487!3d42.827601961537596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882e7cd2361c7cb9%3A0xb9a13d3e2d284cd5!2sAylmer%2C+ON!5e0!3m2!1sen!2sca!4v1499958151760" allowfullscreen></iframe>
+        </div>
+
         <!--decorative graphic-->
         <img src="img/corner.svg" class="section-corner" alt="decorative graphic">
 

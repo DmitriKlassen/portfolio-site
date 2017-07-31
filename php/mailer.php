@@ -1,7 +1,7 @@
 <?php
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     // post requests (good)
-    $recipient = "Dmi.Klassen@gmail.com";
+    $recipient = "dmitri@dmitriklassen.com";
     $secret = "6LcD3SgUAAAAAAQjVlLYNX6iQ_FJ-Lp-jxr8o9Uj";
     // remove whitespace from user inputs
     $name = strip_tags(trim($_POST["name"]));

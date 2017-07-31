@@ -5,6 +5,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 /*remove recaptcha badge*/
 .grecaptcha-badge {
   display: none !important;
@@ -45,6 +49,8 @@ section {
 p {
   font-family: 'Open Sans', sans-serif;
   color: #000;
+  font-size: 37.4px;
+  font-size: 37.4px;
   font-size: 1.7rem;
 }
 
@@ -62,13 +68,16 @@ ul {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 /*main sections headings*/
 .main-heading {
   font-family: 'Megrim';
   color: #333;
+  font-size: 110px;
+  font-size: 110px;
   font-size: 5rem;
   text-align: center;
   margin-bottom: 30px;
@@ -78,8 +87,9 @@ ul {
 .heading {
   font-family: 'Open Sans', sans-serif;
   color: #333;
+  font-size: 39.6px;
+  font-size: 39.6px;
   font-size: 1.8rem;
-  font-weight: 700;
   letter-spacing: 4px;
   margin-top: 15px;
 }
@@ -88,6 +98,8 @@ ul {
 .sub-heading {
   font-family: 'Open Sans', sans-serif;
   color: #333;
+  font-size: 35.2px;
+  font-size: 35.2px;
   font-size: 1.6rem;
   letter-spacing: 2px;
   margin-bottom: 20px;
@@ -162,12 +174,17 @@ section:nth-child(even) {
 }
 
 .section-top-overlay {
-  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
   transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 a:hover .section-top-overlay, a:focus .section-top-overlay {
-  transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
 }
 
 .top-text {
@@ -190,12 +207,17 @@ nav {
   z-index: 10;
   font-family: 'Open Sans', sans-serif;
   padding: 15px 0;
+  -webkit-transition: background-color .3s ease-in-out;
   transition: background-color .3s ease-in-out;
 }
 
 nav .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 nav .container li {
@@ -205,7 +227,6 @@ nav .container li {
 /*for links in navbar*/
 nav .container a, nav .mobile-nav a {
   color: #fff;
-  text-decoration: none;
   position: relative;
   z-index: 10;
 }
@@ -216,12 +237,17 @@ nav .container .underline {
   height: 100%;
   width: 100%;
   border-bottom: 1px solid #83fc99;
-  transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
   transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 nav .container a:hover + .underline, nav .container a:focus + .underline {
-  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
 }
 
 nav .container a:focus {
@@ -238,40 +264,48 @@ nav .container .hamburger {
   cursor: pointer;
 }
 
-nav .container .hamburger div {
+nav .container .hamburger span {
   height: 1px;
   width: 100%;
   background-color: #fff;
   position: absolute;
   left: 0;
   opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  -webkit-transition: opacity .3s ease-in-out, background-color .1s ease-in-out, -webkit-transform .3s ease-in-out;
+  transition: opacity .3s ease-in-out, background-color .1s ease-in-out, -webkit-transform .3s ease-in-out;
   transition: opacity .3s ease-in-out, transform .3s ease-in-out, background-color .1s ease-in-out;
+  transition: opacity .3s ease-in-out, transform .3s ease-in-out, background-color .1s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
-nav .container .hamburger:hover div {
+nav .container .hamburger:hover span {
   background-color: #83fc99;
 }
 
-nav .container .hamburger div:nth-child(1) {
+nav .container .hamburger span:nth-child(1) {
   top: 0px;
 }
-nav.active .container .hamburger div:nth-child(1) {
-  transform: translateY(12px) rotate(-135deg);
+nav.active .container .hamburger span:nth-child(1) {
+  -webkit-transform: translateY(12px) rotate(-135deg);
+          transform: translateY(12px) rotate(-135deg);
 }
 
-nav .container .hamburger div:nth-child(2) {
+nav .container .hamburger span:nth-child(2) {
   top: 12px;
 }
-nav.active .container .hamburger div:nth-child(2) {
-  transform: rotate(0deg) scaleX(-1);
+nav.active .container .hamburger span:nth-child(2) {
+  -webkit-transform: rotate(0deg) scaleX(-1);
+          transform: rotate(0deg) scaleX(-1);
   opacity: .3;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=30)";
 }
 
-nav .container .hamburger div:nth-child(3) {
+nav .container .hamburger span:nth-child(3) {
   top: 24px;
 }
-nav.active .container .hamburger div:nth-child(3) {
-  transform: translateY(-12px) rotate(135deg);
+nav.active .container .hamburger span:nth-child(3) {
+  -webkit-transform: translateY(-12px) rotate(135deg);
+          transform: translateY(-12px) rotate(135deg);
 }
 
 /*for mobile drop-down nav*/
@@ -281,7 +315,9 @@ nav .mobile-nav {
   text-align: center;
   padding-top: 0px;
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   overflow: hidden;
+  -webkit-transition: height .3s ease-in-out, padding .3s ease-in-out, opacity .3s ease-in-out;
   transition: height .3s ease-in-out, padding .3s ease-in-out, opacity .3s ease-in-out;
 }
 
@@ -312,6 +348,7 @@ nav .mobile-nav li {
     max-height: calc(100vh - 55px);
     padding-top: 15px;
     opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
 }
 
@@ -340,13 +377,19 @@ nav .mobile-nav li {
 #banner .name path {
   stroke: #fff;
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   stroke-dasharray: 100px;
   stroke-dashoffset: 0px;
-  animation-name: write;
-  animation-duration: 2s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
+  -webkit-animation-name: write;
+          animation-name: write;
+  -webkit-animation-duration: 2s;
+          animation-duration: 2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
   fill: none;
   stroke-width:0.70000118;
   stroke-linecap: round;
@@ -354,18 +397,39 @@ nav .mobile-nav li {
   stroke-opacity:1;
 }
 
-@keyframes write {
+@-webkit-keyframes write {
   0% {
     stroke-dashoffset: 100px;
     opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   }
   0.001% {
     stroke-dashoffset: 100px;
     opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
   100% {
     stroke-dashoffset: 0;
     opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+}
+
+@keyframes write {
+  0% {
+    stroke-dashoffset: 100px;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+  0.001% {
+    stroke-dashoffset: 100px;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
 }
 
@@ -382,13 +446,19 @@ nav .mobile-nav li {
 #banner .logo path {
   stroke: #fff;
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   stroke-dasharray: 300px;
   stroke-dashoffset: 0px;
-  animation-name: draw-logo;
-  animation-duration: 1.6s;
-  animation-fill-mode: forwards;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
+  -webkit-animation-name: draw-logo;
+          animation-name: draw-logo;
+  -webkit-animation-duration: 1.6s;
+          animation-duration: 1.6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-iteration-count: 1;
+          animation-iteration-count: 1;
+  -webkit-animation-timing-function: linear;
+          animation-timing-function: linear;
   fill: none;
   stroke-width:2.8;
   stroke-linecap: square;
@@ -396,60 +466,104 @@ nav .mobile-nav li {
   stroke-opacity:1;
 }
 
-@keyframes draw-logo {
+@-webkit-keyframes draw-logo {
   0% {
     stroke-dashoffset: 300px;
     opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   }
   0.001% {
     stroke-dashoffset: 300px;
     opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
   100% {
     stroke-dashoffset: 0;
     opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+}
+
+@keyframes draw-logo {
+  0% {
+    stroke-dashoffset: 300px;
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+  0.001% {
+    stroke-dashoffset: 300px;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
 }
 
 /*animate logo 'D'*/
 #banner .logo #d path {
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   stroke-dasharray: 300px;
   stroke-dashoffset: 0px;
-  animation-duration: 1.7s;
+  -webkit-animation-duration: 1.7s;
+          animation-duration: 1.7s;
 }
 
 /*animate logo 'K' line segments*/
 #banner .logo #k2 path, #banner .logo #k3 path, #banner .logo #k4 path {
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   stroke-dasharray: 300px;
   stroke-dashoffset: 0px;
-  animation-duration: 1.7s;
+  -webkit-animation-duration: 1.7s;
+          animation-duration: 1.7s;
 }
 
 /*animate logo top left 'k' line segment*/
 #banner .logo #k1 path {
   opacity: 0;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   stroke-dasharray: 300px;
   stroke-dashoffset: 0px;
-  animation-duration: 1.7s;
+  -webkit-animation-duration: 1.7s;
+          animation-duration: 1.7s;
 }
 
 /*for tagline*/
 #banner p {
   color: white;
   opacity: 0;
-  animation-name: fade-in;
-  animation-duration: .4s;
-  animation-fill-mode: forwards;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  -webkit-animation-name: fade-in;
+          animation-name: fade-in;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes fade-in {
+  0% {
+    opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  }
+  100% {
+    opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+  }
 }
 
 @keyframes fade-in {
   0% {
     opacity: 0;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   }
   100% {
     opacity: 1;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   }
 }
 
@@ -466,6 +580,8 @@ main {
 
 /*for skills-specific nav bar*/
 #skills .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 30px;
 }
@@ -487,17 +603,23 @@ main {
   width: 100%;
   top: 0;
   border-bottom: 2px solid #c427d8;
-  transform: scaleX(0);
+  -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+  -webkit-transition: border .3s ease-in-out, -webkit-transform .3s ease-in-out;
+  transition: border .3s ease-in-out, -webkit-transform .3s ease-in-out;
   transition: transform .3s ease-in-out, border .3s ease-in-out;
+  transition: transform .3s ease-in-out, border .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 #skills .nav:not(.active):hover .underline, #skills .nav:not(.active) button:focus + .underline {
-  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
   border-bottom: 2px solid #83fc99;
 }
 
 #skills .nav.active .underline {
-  transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
 }
 
 #skills .nav svg {
@@ -506,7 +628,8 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 @media(max-width: 1100px){
   #skills .nav svg{
@@ -517,6 +640,7 @@ main {
 
 #skills .nav svg path {
   stroke: #c427d8;
+  -webkit-transition: stroke .3s ease-in-out;
   transition: stroke .3s ease-in-out;
 }
 
@@ -527,6 +651,7 @@ main {
 #skills .nav p {
   color: #c427d8;
   margin: 6px;
+  -webkit-transition: color .3s ease-in-out;
   transition: color .3s ease-in-out;
 }
 
@@ -554,34 +679,47 @@ main {
 /*mobile skills-nav styles*/
 @media(max-width: 600px){
   #skills .mobile-flex {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
   }
 
   #skills .navbar {
+    width: 70px;
     margin-bottom: 0;
     margin-right: 15px;
-    flex-direction: column;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   
   #skills .nav {
-    width: 100%;
+    width: 70px;
     height: 40px;
   }
 
   #skills .nav .underline {
     border-right: 2px solid #c427d8;
     border-bottom: none;
-    transform: scaleY(0);
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
   }
 
-  #skills .nav:not(.active):hover .underline {
-    transform: scaleY(1);
+  #skills .nav:not(.active):hover .underline, #skills .nav:not(.active) button:focus + .underline {
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
     border-right: 2px solid #83fc99;
     border-bottom: none;
   }
 
   #skills .nav.active .underline {
-    transform: scaleY(1);
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+
+  .content {
+    max-width: calc(100vw - 80px);
   }
 }
 
@@ -611,16 +749,22 @@ button.more .overlay {
   width: 110%;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -125%);
+  -webkit-transform: translate(-50%, -125%);
+          transform: translate(-50%, -125%);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
   transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 button.less .overlay {
-  transform: translate(-50%, 25%);
+  -webkit-transform: translate(-50%, 25%);
+          transform: translate(-50%, 25%);
 }
 
 button.more:hover .overlay, button.more:focus .overlay {
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 button.more p {
@@ -630,45 +774,49 @@ button.more p {
 }
 
 /*FOR PORTFOLIO SECTION*/
-/*parent to handle columns' behavior*/
-.col-parent {
-  display: flex;
-  justify-content: space-between;
+.grid-parent {
+  display: grid;
+  -ms-grid-columns: 50fr 50fr;
+      grid-template-columns: 50fr 50fr;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  grid-template-areas: 
+    "card1 card2"
+    "redding1 redding2";
+  grid-column-gap: 30px;
 }
 @media(max-width: 700px){
-  .col-parent {
-    flex-wrap: wrap;
+  .grid-parent {
+    -ms-grid-columns: 100fr;
+        grid-template-columns: 100fr;
+    grid-template-areas:
+      "card1"
+      "redding1"
+      "card2"
+      "redding2";
   }
-}
-
-/*parent to hold card and 'redding' button*/
-.card-container {
-  width: 45%;
-  margin-bottom: 30px;
-}
-@media(max-width: 700px){
-  .card-container {
-    width: 100%;
-  }
-}
-
-.card-container a {
-  text-decoration: none;
 }
 
 /*websites' cards*/
 .card {
   background-color: rgba(0, 0, 0, 0.1);
+  -webkit-transition: outline .2s ease-in-out;
   transition: outline .2s ease-in-out;
   outline: 5px solid transparent;
+  padding-bottom: 1px;
+  height: 100%;
 }
 
-.card-container a {
-  outline: none;
+.card1 {
+  grid-area: card1;
+}
+
+.card2 {
+  grid-area: card2;
 }
 
 .card:hover, a:focus .card {
-  outline: 5px solid #83fc99;
+  outline: 5px solid #c427d8;
 }
 
 /*card image*/
@@ -680,7 +828,7 @@ button.more p {
 .card .title {
   font-size: 20px;
   font-weight: 700;
-  margin: 15px 15px 0 15px;
+  margin: 15px 20px 0 20px;
   border-bottom: 1px solid #000;
 }
 
@@ -688,32 +836,41 @@ button.more p {
 .card .description {
   font-size: 18px;
   text-align: justify;
-  margin: 15px;
+  margin: 20px;
 }
 
 /*for 'redding' button*/
-.card-container .redding-link div {
-  margin: 15px 0px;
+.redding-link1 {
+  grid-area: redding1;
+}
+
+.redding-link2 {
+  grid-area: redding2;
+}
+
+.redding-link div {
+  margin: 15px 0px 60px 0px;
   padding: 15px;
   background-color: rgb(41, 171, 226);
 }
 
-.card-container .redding-link p {
+.redding-link p {
   font-size: 14px;
   font-weight: 700;
   text-align: center;
   color: #000;
+  -webkit-transition: color .3s ease-in-out;
   transition: color .3s ease-in-out;
 }
 
-.card-container .redding-link:hover p, .card-container .redding-link:focus p {
+.redding-link:hover p, .redding-link:focus p {
   color: #fff;
 }
 
 /*FOR EXPERIENCE SECTION*/
 #redding a{
-  text-decoration: none;
   color: #000;
+  -webkit-transition: color .15s ease-in-out;
   transition: color .15s ease-in-out;
 }
 
@@ -754,6 +911,7 @@ input, textarea {
   border-left: 2px solid #c427d8;
   padding: 5px;
   font-size: 20px;
+  -webkit-transition: border .15s ease-in-out;
   transition: border .15s ease-in-out;
   font-family: 'Open Sans', sans-serif;
 }
@@ -796,12 +954,17 @@ form button .overlay {
   height: 120%;
   left: 50%;
   top: 50%;
-  transform: translate(-140%, -50%);
+  -webkit-transform: translate(-140%, -50%);
+          transform: translate(-140%, -50%);
+  -webkit-transition: -webkit-transform .3s ease-in-out;
+  transition: -webkit-transform .3s ease-in-out;
   transition: transform .3s ease-in-out;
+  transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
 }
 
 form button:hover .overlay, form button:focus .overlay {
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 form button p {
@@ -811,8 +974,8 @@ form button p {
 }
 
 #contact .text a{
-  text-decoration: none;
   color: #000;
+  -webkit-transition: color .15s ease-in-out;
   transition: color .15s ease-in-out;
 }
 
@@ -823,6 +986,7 @@ form button p {
 
 /*style google map*/
 iframe {
+  pointer-events: none;
   border: none;
   width: 100%;
   height: 400px;

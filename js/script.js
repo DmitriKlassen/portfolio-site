@@ -4,6 +4,11 @@ function changeText(selector, newText){
 }
 
 $(function () {
+  // initiate smoothscroll/localscroll
+  $('html').localScroll({
+    target:'body'
+  });
+
   // handle mobile nav bar
   $("nav .container .hamburger").click(function(){
     $("nav").toggleClass("active");
@@ -55,6 +60,14 @@ $(function () {
       $(this).addClass("less");
       changeText("#about button p", "LESS");
     }
+  });
+
+  // maps pointer events
+  $(".maps").click(function(){
+    $(".maps iframe").css("pointer-events", "auto");
+  });
+  $(".maps").mouseleave(function(){
+    $(".maps iframe").css("pointer-events", "none");
   });
 
   // contact form
